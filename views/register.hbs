@@ -93,16 +93,16 @@
     <script src="/js/pages/examples/sign-up.js"></script>
 	
 	<!-- Google ReCaptha -->
-           <script>
-      function onClick(e) {
-        e.preventDefault();
-        grecaptcha.ready(function() {
-          grecaptcha.execute('6LcHCOIbAAAAAOc-VSyranKJBibXaZEwVWYePiSz', {action: 'submit'}).then(function(token) {
-              // Add your logic to submit to your backend server here.
-          });
-        });
-      }
-  </script>
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+             <script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }
+ </script>
+ <button class="g-recaptcha" 
+        data-sitekey="6LcHCOIbAAAAAOc-VSyranKJBibXaZEwVWYePiSz" 
+        data-callback='onSubmit' 
+        data-action='submit'>Submit</button>
 	
 	<!-- Check Password -->
 	<script>
