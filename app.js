@@ -47,7 +47,7 @@ const getHashedPassword = (password) => {
 app.post('/user/register', async(req, res) => {
 	if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) return res.render('register', { message: "Please select the captcha!", messageClass: 'red' })
 	var secretKey = process.env.google_ReCaptcha
-	var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
+	var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + "6LcHCOIbAAAAAGBYV4o9r_cE-Pt1Qn6tzyZ-pF1c" + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
 	const fetchCaptha = await fetch(verificationUrl);
 	const resCaptha = await fetchCaptha.json()
 	if (!resCaptha.success || resCaptha.success == undefined) return res.render('register', { message: "Invalid in  recaptcha!", messageClass: 'red' })
